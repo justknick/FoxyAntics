@@ -140,3 +140,13 @@ frame = 13
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_auk3d")
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -58.0
+offset_right = 274.0
+offset_bottom = 30.0
+scale = Vector2(0.141015, 0.141015)
+theme_override_font_sizes/font_size = 64
+text = "debugger"
+vertical_alignment = 1
