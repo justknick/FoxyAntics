@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 	update_debug_label()
 	calculate_state()
 	
+	input_bullet()
+	
 	move_and_slide()
 
 
@@ -38,6 +40,12 @@ func update_debug_label() -> void:
 	debug_label.text = "state: %s, \nfloor: %s \nvel: (%.0f, %.0f)" % [
 		_state, is_on_floor(), velocity.x, velocity.y
 		]
+
+
+func input_bullet() -> void: 
+	if Input.is_action_just_pressed("shoot"):
+		#print("pew!")
+		SignalManager.on_create_bullet.emit(global_position, Vector2(50,50), 3.0, 20.0, Constants.ObjectType.BULLET_PLAYER)
 
 
 func input_movement() -> void: 
