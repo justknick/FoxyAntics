@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dk3qi27cdnhmw"]
+[gd_scene load_steps=11 format=3 uid="uid://dk3qi27cdnhmw"]
 
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_3k4xj"]
 [ext_resource type="Texture2D" uid="uid://csdgtexoviypb" path="res://assets/player/player.png" id="1_cajbo"]
 
 [sub_resource type="Animation" id="Animation_jvue5"]
@@ -115,7 +116,12 @@ _data = {
 "run": SubResource("Animation_3s36x")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auk3d"]
+size = Vector2(10, 18)
+
+[node name="Player" type="CharacterBody2D" groups=["moveables"]]
+collision_layer = 0
+script = ExtResource("1_3k4xj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -127,3 +133,7 @@ autoplay = "idle"
 texture = ExtResource("1_cajbo")
 hframes = 19
 frame = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_auk3d")

@@ -23,6 +23,18 @@ window/size/mode=3
 window/stretch/mode="canvas_items"
 window/size/mode.debug=0
 
+[global_group]
+
+moveables="anything that moves. Want to pause movement at gameover"
+
+[layer_names]
+
+2d_physics/layer_1="platform"
+2d_physics/layer_2="hitbox_player"
+2d_physics/layer_3="hitbox_enemy"
+2d_physics/layer_4="bullet_player"
+2d_physics/layer_5="bullet_enemy"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
