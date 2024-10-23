@@ -22,7 +22,7 @@ func check_bullet_life_span(delta: float) -> void:
 	# once the lifetime reaches lifespan, bullet will disappear
 	if _life_time > _life_span:
 		queue_free()
-		print("bullet gone")
+		#print("bullet gone")
 
 
 func setup(pos: Vector2, direction: Vector2, speed: float, lifespan: float) -> void: 

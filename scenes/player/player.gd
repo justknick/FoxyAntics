@@ -12,8 +12,11 @@ const JUMP_VELOCITY: float = -260.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var debug_label: Label = $DebugLabel
+@onready var shooter: Node2D = $Shooter
+
 
 var _state: PlayerState
+var _direction: Vector2 = Vector2.RIGHT
 
 func _ready() -> void: 
 	pass 
@@ -25,12 +28,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y += GRAVITY * delta 
 	# player controls 
 	input_movement()
+	input_bullet()
 	#state_animation()
-	get_facing_direction()
+	sprite_facing_direction()
 	update_debug_label()
 	calculate_state()
-	
-	input_bullet()
 	
 	move_and_slide()
 
@@ -45,7 +47,7 @@ func update_debug_label() -> void:
 func input_bullet() -> void: 
 	if Input.is_action_just_pressed("shoot"):
 		#print("pew!")
-		SignalManager.on_create_bullet.emit(global_position, Vector2(50,50), 3.0, 20.0, Constants.ObjectType.BULLET_PLAYER)
+		shooter.shoot(_direction)
 
 
 func input_movement() -> void: 
@@ -53,9 +55,11 @@ func input_movement() -> void:
 	
 	if Input.is_action_pressed("left") == true: 
 		velocity.x -= RUN_SPEED
+		set_direction(Vector2.LEFT)
 	
 	if Input.is_action_pressed("right") == true: 
 		velocity.x += RUN_SPEED
+		set_direction(Vector2.RIGHT)
 	
 	if Input.is_action_pressed("left") && Input.is_action_pressed("right"):
 		velocity.x = 0
@@ -66,11 +70,13 @@ func input_movement() -> void:
 	velocity.y = clampf(velocity.y, JUMP_VELOCITY, MAX_FALL)
 
 
-func get_facing_direction() -> void:
-	if velocity.x < 0:
+func sprite_facing_direction() -> void:
+	var direction = get_direction()
+	
+	if direction == Vector2.LEFT:
 		sprite_2d.flip_h = true 
-	elif velocity.x > 0: 
-		sprite_2d.flip_h = false 
+	elif direction == Vector2.RIGHT:
+		sprite_2d.flip_h = false
 
 
 func state_animation() -> void: 
@@ -131,3 +137,13 @@ func calculate_state() -> void:
 		# in air - upward 
 		else: 
 			set_state(PlayerState.JUMP)
+
+
+func set_direction(direction: Vector2) -> void: 
+	if _direction == direction:
+		return
+	_direction = direction
+
+
+func get_direction() -> Vector2: 
+	return _direction
