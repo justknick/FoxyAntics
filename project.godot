@@ -25,7 +25,8 @@ window/size/mode.debug=0
 
 [global_group]
 
-moveables="anything that moves. Want to pause movement at gameover"
+Moveables="anything that moves. Want to pause movement at gameover"
+Player=""
 
 [input]
 
