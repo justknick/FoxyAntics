@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="FoxyAntics"
+run/main_scene="res://scenes/level_base/level_base.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.png"
 
@@ -24,4 +25,5 @@ window/size/mode.debug=0
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
