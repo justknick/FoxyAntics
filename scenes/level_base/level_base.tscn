@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://hwq03drttkcj"]
+[gd_scene load_steps=9 format=4 uid="uid://hwq03drttkcj"]
 
 [ext_resource type="Texture2D" uid="uid://brqcnnw7lwj4p" path="res://assets/tiles/Terrain (16x16).png" id="1_wp522"]
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_xxsck"]
 [ext_resource type="PackedScene" uid="uid://dk3qi27cdnhmw" path="res://scenes/player/player.tscn" id="2_hxsqf"]
-[ext_resource type="PackedScene" uid="uid://d321l0hyqowwj" path="res://scenes/enemy/enemy_snail.tscn" id="5_2v8bx"]
+[ext_resource type="PackedScene" uid="uid://d321l0hyqowwj" path="res://scenes/enemy/snail.tscn" id="5_2v8bx"]
 [ext_resource type="PackedScene" uid="uid://1c3vx01t3m8q" path="res://scenes/object_maker/object_maker.tscn" id="6_woe1m"]
+[ext_resource type="PackedScene" uid="uid://bq7hbknqj62qe" path="res://scenes/enemy/frog.tscn" id="6_y6rx7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dy503"]
 texture = ExtResource("1_wp522")
@@ -230,7 +231,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAHAAAAAAABAAAAAAAHAAAAAAACAAAAAAAHAAA
 tile_set = SubResource("TileSet_l0hhy")
 
 [node name="Player" parent="." instance=ExtResource("2_hxsqf")]
-position = Vector2(107, -155)
+position = Vector2(289, -149)
 
 [node name="ObjectMaker" parent="." instance=ExtResource("6_woe1m")]
 
@@ -238,3 +239,6 @@ position = Vector2(107, -155)
 
 [node name="EnemySnail" parent="Enemies" instance=ExtResource("5_2v8bx")]
 position = Vector2(539, -26)
+
+[node name="EnemyFrog" parent="Enemies" instance=ExtResource("6_y6rx7")]
+position = Vector2(-108, -188)
