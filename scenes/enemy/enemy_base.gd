@@ -31,7 +31,8 @@ func defeat() -> void:
 	if _dying == true:
 		return 
 	
-	#below also plays sounds, pickups, and explosions
+	#below also plays sounds, pickups, and explosions(done)
+	SignalManager.on_create_object.emit(global_position, Constants.ObjectType.EXPLOSION)
 	_dying = true 
 	set_physics_process(false)
 	hide()
