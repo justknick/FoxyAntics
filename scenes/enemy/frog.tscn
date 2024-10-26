@@ -102,9 +102,8 @@ jump_timer_max = 4.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_u8dbh")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.161484
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_8tmq6")

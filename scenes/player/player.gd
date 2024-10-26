@@ -147,3 +147,7 @@ func set_direction(direction: Vector2) -> void:
 
 func get_direction() -> Vector2: 
 	return _direction
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	print("player just got hit by: ", area)
