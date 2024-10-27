@@ -1,86 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://d321l0hyqowwj"]
+[gd_scene load_steps=6 format=3 uid="uid://d321l0hyqowwj"]
 
 [ext_resource type="PackedScene" uid="uid://cqtvgqts82kcg" path="res://scenes/enemy/enemy_base.tscn" id="1_bfn8m"]
 [ext_resource type="Script" path="res://scenes/enemy/snail.gd" id="2_chtkt"]
-[ext_resource type="Texture2D" uid="uid://3s8lljuk6krg" path="res://assets/enemies/snail/snail.png" id="3_871hf"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_px8qi"]
-atlas = ExtResource("3_871hf")
-region = Rect2(0, 0, 38, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3piky"]
-atlas = ExtResource("3_871hf")
-region = Rect2(38, 0, 38, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dlcl2"]
-atlas = ExtResource("3_871hf")
-region = Rect2(76, 0, 38, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ftk6y"]
-atlas = ExtResource("3_871hf")
-region = Rect2(114, 0, 38, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i22cn"]
-atlas = ExtResource("3_871hf")
-region = Rect2(152, 0, 38, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ny7c0"]
-atlas = ExtResource("3_871hf")
-region = Rect2(190, 0, 38, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0kwyb"]
-atlas = ExtResource("3_871hf")
-region = Rect2(228, 0, 38, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s2ecu"]
-atlas = ExtResource("3_871hf")
-region = Rect2(266, 0, 38, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7nok"]
-atlas = ExtResource("3_871hf")
-region = Rect2(304, 0, 38, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbsbo"]
-atlas = ExtResource("3_871hf")
-region = Rect2(342, 0, 38, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vcoqi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_px8qi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3piky")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dlcl2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ftk6y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i22cn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ny7c0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0kwyb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s2ecu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x7nok")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tbsbo")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 10.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://coe3ar1cp50sj" path="res://resources/snail_sprite_frames.tres" id="3_6nylp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t88oy"]
 radius = 8.0
@@ -94,7 +16,7 @@ script = ExtResource("2_chtkt")
 speed = 30.0
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-sprite_frames = SubResource("SpriteFrames_vcoqi")
+sprite_frames = ExtResource("3_6nylp")
 animation = &"walk"
 autoplay = "walk"
 frame_progress = 0.234722

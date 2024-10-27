@@ -3,7 +3,9 @@ extends Node2D
 const OBJECT_SCENES: Dictionary = {
 	Constants.ObjectType.BULLET_PLAYER: preload("res://scenes/bullet/bullet_player.tscn"), 
 	Constants.ObjectType.BULLET_ENEMY: preload("res://scenes/bullet/bullet_enemy.tscn"),   
-	Constants.ObjectType.EXPLOSION: preload("res://scenes/explosion/explosion.tscn"),   
+	Constants.ObjectType.EXPLOSION: preload("res://scenes/explosion/explosion.tscn"),
+	Constants.ObjectType.PICKUP: preload("res://scenes/fruit_pickup/fruit_pickup.tscn"),
+
 }
 
 

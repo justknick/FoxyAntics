@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://775o2m14tuqe"]
+
+[ext_resource type="Script" path="res://scenes/fruit_pickup/fruit_pickup.gd" id="1_7t00e"]
+[ext_resource type="SpriteFrames" uid="uid://c7chqccska476" path="res://resources/fruit_pickup_sprite_frames.tres" id="2_n5nwy"]
+[ext_resource type="LabelSettings" uid="uid://dwoj7dgthifc0" path="res://assets/LG_white_24.tres" id="3_0iqdq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ckqvx"]
+
+[node name="FruitPickup" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_7t00e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_n5nwy")
+animation = &"melon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ckqvx")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="DebugTimeLabel" type="Label" parent="."]
+offset_left = -8.0
+offset_top = -23.0
+offset_right = 32.0
+offset_bottom = 2.0
+scale = Vector2(0.4, 0.4)
+text = "0s"
+label_settings = ExtResource("3_0iqdq")
+horizontal_alignment = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 8)
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
