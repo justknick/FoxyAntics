@@ -5,7 +5,7 @@ extends Area2D
 @onready var debug_time_label: Label = $DebugTimeLabel
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 
-@export var Points: int = 2
+@export var points: int = 2
 
 const GRAVITY: float = 160.0
 const JUMP: float = -120.0
@@ -64,4 +64,10 @@ func drop_gone() -> void:
 
 
 func _on_life_timer_timeout() -> void:
+	drop_gone()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	#print(area)
+	SignalManager.on_pickup_hit.emit(points)
 	drop_gone()
