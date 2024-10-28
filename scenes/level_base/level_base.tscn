@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://hwq03drttkcj"]
+[gd_scene load_steps=10 format=4 uid="uid://hwq03drttkcj"]
 
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_xxsck"]
 [ext_resource type="TileSet" uid="uid://7pj6fw0we01w" path="res://resources/terrain_tile_set.tres" id="2_cygcq"]
@@ -7,9 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://1c3vx01t3m8q" path="res://scenes/object_maker/object_maker.tscn" id="6_woe1m"]
 [ext_resource type="PackedScene" uid="uid://bq7hbknqj62qe" path="res://scenes/enemy/frog.tscn" id="6_y6rx7"]
 [ext_resource type="PackedScene" uid="uid://bjqv10wid6law" path="res://scenes/enemy/eagle.tscn" id="7_8j2p3"]
+[ext_resource type="PackedScene" uid="uid://b1k3cetxi4gjn" path="res://scenes/ball_spike/ball_spike.tscn" id="8_ix11y"]
+
+[sub_resource type="Curve2D" id="Curve2D_vdb3g"]
+_data = {
+"points": PackedVector2Array(-0.0201702, 21.9697, 0.0201702, -21.9697, 117, -258, -17.4982, -13.1007, 17.4982, 13.1007, 277, -258, 20.5681, -27.1372, -20.5681, 27.1372, 307, -189, 7.67465, -33.0638, -7.67465, 33.0638, 212, -156, -11.9724, 15.5961, 11.9724, -15.5961, 144, -172, 4.91177, 6.23844, -4.91177, -6.23844, 115, -235, -11.0707, 14.4468, 11.0707, -14.4468, 117, -258)
+}
+point_count = 7
 
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_xxsck")
+
+[node name="ObjectMaker" parent="." instance=ExtResource("6_woe1m")]
 
 [node name="TileMapLayers" type="Node2D" parent="."]
 
@@ -21,8 +30,6 @@ tile_set = ExtResource("2_cygcq")
 [node name="Player" parent="." instance=ExtResource("2_hxsqf")]
 position = Vector2(289, -149)
 
-[node name="ObjectMaker" parent="." instance=ExtResource("6_woe1m")]
-
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="EnemySnail" parent="Enemies" instance=ExtResource("5_2v8bx")]
@@ -33,3 +40,14 @@ position = Vector2(-108, -188)
 
 [node name="Eagle" parent="Enemies" instance=ExtResource("7_8j2p3")]
 position = Vector2(363, -274)
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
+position = Vector2(-7.99479, 1.52942)
+scale = Vector2(1.02604, 1.0098)
+curve = SubResource("Curve2D_vdb3g")
+
+[node name="BallSpike" parent="Paths/Path2D" instance=ExtResource("8_ix11y")]
+position = Vector2(117, -258)
+scale = Vector2(0.974621, 0.990295)
