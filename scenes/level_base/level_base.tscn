@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=4 uid="uid://hwq03drttkcj"]
+[gd_scene load_steps=11 format=4 uid="uid://hwq03drttkcj"]
 
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_xxsck"]
 [ext_resource type="TileSet" uid="uid://7pj6fw0we01w" path="res://resources/terrain_tile_set.tres" id="2_cygcq"]
 [ext_resource type="PackedScene" uid="uid://dk3qi27cdnhmw" path="res://scenes/player/player.tscn" id="2_hxsqf"]
 [ext_resource type="PackedScene" uid="uid://d321l0hyqowwj" path="res://scenes/enemy/snail.tscn" id="5_2v8bx"]
-[ext_resource type="PackedScene" uid="uid://1c3vx01t3m8q" path="res://scenes/object_maker/object_maker.tscn" id="6_woe1m"]
+[ext_resource type="PackedScene" uid="uid://1c3vx01t3m8q" path="res://scenes/game_objects/object_maker/object_maker.tscn" id="6_woe1m"]
 [ext_resource type="PackedScene" uid="uid://bq7hbknqj62qe" path="res://scenes/enemy/frog.tscn" id="6_y6rx7"]
 [ext_resource type="PackedScene" uid="uid://bjqv10wid6law" path="res://scenes/enemy/eagle.tscn" id="7_8j2p3"]
-[ext_resource type="PackedScene" uid="uid://b1k3cetxi4gjn" path="res://scenes/ball_spike/ball_spike.tscn" id="8_ix11y"]
+[ext_resource type="PackedScene" uid="uid://b1k3cetxi4gjn" path="res://scenes/game_objects/ball_spike/ball_spike.tscn" id="8_ix11y"]
+[ext_resource type="PackedScene" uid="uid://dqx6pehhiitx" path="res://scenes/game_objects/floor_spike/floor_spike.tscn" id="9_e7fne"]
 
 [sub_resource type="Curve2D" id="Curve2D_vdb3g"]
 _data = {
@@ -41,13 +42,17 @@ position = Vector2(-108, -188)
 [node name="Eagle" parent="Enemies" instance=ExtResource("7_8j2p3")]
 position = Vector2(363, -274)
 
-[node name="Paths" type="Node2D" parent="."]
+[node name="Hazards" type="Node2D" parent="."]
+z_index = -1
 
-[node name="Path2D" type="Path2D" parent="Paths"]
+[node name="Path2D" type="Path2D" parent="Hazards"]
 position = Vector2(-7.99479, 1.52942)
 scale = Vector2(1.02604, 1.0098)
 curve = SubResource("Curve2D_vdb3g")
 
-[node name="BallSpike" parent="Paths/Path2D" instance=ExtResource("8_ix11y")]
+[node name="BallSpike" parent="Hazards/Path2D" instance=ExtResource("8_ix11y")]
 position = Vector2(117, -258)
 scale = Vector2(0.974621, 0.990295)
+
+[node name="FloorSpike" parent="Hazards" instance=ExtResource("9_e7fne")]
+position = Vector2(66, -12)

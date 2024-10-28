@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://775o2m14tuqe"]
 
-[ext_resource type="Script" path="res://scenes/fruit_pickup/fruit_pickup.gd" id="1_7t00e"]
+[ext_resource type="Script" path="res://scenes/game_objects/fruit_pickup/fruit_pickup.gd" id="1_7t00e"]
 [ext_resource type="SpriteFrames" uid="uid://c7chqccska476" path="res://resources/fruit_pickup_sprite_frames.tres" id="2_n5nwy"]
 [ext_resource type="LabelSettings" uid="uid://dwoj7dgthifc0" path="res://assets/LG_white_24.tres" id="3_0iqdq"]
 

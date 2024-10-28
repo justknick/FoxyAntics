@@ -1,11 +1,11 @@
 extends Node2D
+# object will instantiate ("spawn") a 'game object' with the type associated 
 
 const OBJECT_SCENES: Dictionary = {
-	Constants.ObjectType.BULLET_PLAYER: preload("res://scenes/bullet/bullet_player.tscn"), 
-	Constants.ObjectType.BULLET_ENEMY: preload("res://scenes/bullet/bullet_enemy.tscn"),   
-	Constants.ObjectType.EXPLOSION: preload("res://scenes/explosion/explosion.tscn"),
-	Constants.ObjectType.PICKUP: preload("res://scenes/fruit_pickup/fruit_pickup.tscn"),
-
+	Constants.ObjectType.BULLET_PLAYER: preload("res://scenes/game_objects/bullet/bullet_player.tscn"), 
+	Constants.ObjectType.BULLET_ENEMY: preload("res://scenes/game_objects/bullet/bullet_enemy.tscn"),   
+	Constants.ObjectType.EXPLOSION: preload("res://scenes/game_objects/explosion/explosion.tscn"),
+	Constants.ObjectType.PICKUP: preload("res://scenes/game_objects/fruit_pickup/fruit_pickup.tscn"),
 }
 
 

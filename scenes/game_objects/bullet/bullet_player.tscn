@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dicwqluudrbr0"]
 
 [ext_resource type="Texture2D" uid="uid://dv2e14hr3nqr5" path="res://assets/items/bullet1.png" id="1_aoad0"]
-[ext_resource type="PackedScene" uid="uid://cedq7rh4otx0q" path="res://scenes/bullet/bullet_base.tscn" id="1_yr7pb"]
+[ext_resource type="PackedScene" uid="uid://cedq7rh4otx0q" path="res://scenes/game_objects/bullet/bullet_base.tscn" id="1_yr7pb"]
 
 [node name="BulletPlayer" instance=ExtResource("1_yr7pb")]
 collision_layer = 8

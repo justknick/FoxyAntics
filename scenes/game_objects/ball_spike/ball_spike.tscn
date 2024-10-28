@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1k3cetxi4gjn"]
 
-[ext_resource type="Script" path="res://scenes/ball_spike/ball_spike.gd" id="1_3l71w"]
+[ext_resource type="Script" path="res://scenes/game_objects/ball_spike/ball_spike.gd" id="1_3l71w"]
 [ext_resource type="Texture2D" uid="uid://b7b820mul82yx" path="res://assets/danger/spiked_ball.png" id="2_gy73j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qaejn"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dokl12tb7hury"]
 
-[ext_resource type="PackedScene" uid="uid://cedq7rh4otx0q" path="res://scenes/bullet/bullet_base.tscn" id="1_044m2"]
+[ext_resource type="PackedScene" uid="uid://cedq7rh4otx0q" path="res://scenes/game_objects/bullet/bullet_base.tscn" id="1_044m2"]
 [ext_resource type="Texture2D" uid="uid://cq2etid8b8j3d" path="res://assets/items/bullet2.png" id="2_84may"]
 
 [node name="BulletEnemy" instance=ExtResource("1_044m2")]
