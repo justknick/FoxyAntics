@@ -13,10 +13,14 @@ const JUMP_VELOCITY: float = -260.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var debug_label: Label = $DebugLabel
 @onready var shooter: Node2D = $Shooter
+@onready var invincible_player: AnimationPlayer = $InvinciblePlayer
+@onready var invincible_timer: Timer = $InvincibleTimer
 
 
 var _state: PlayerState
 var _direction: Vector2 = Vector2.RIGHT
+var _invincible: bool = false
+
 
 func _ready() -> void: 
 	pass 
@@ -39,8 +43,8 @@ func _physics_process(delta: float) -> void:
 
 func update_debug_label() -> void: 
 	#var label = state_animation()
-	debug_label.text = "state: %s, \nfloor: %s \nvel: (%.0f, %.0f)" % [
-		_state, is_on_floor(), velocity.x, velocity.y
+	debug_label.text = "state: %s, inv: %s \nfloor: %s \nvel: (%.0f, %.0f)" % [
+		_state, _invincible, is_on_floor(), velocity.x, velocity.y
 		]
 
 
@@ -149,5 +153,26 @@ func get_direction() -> Vector2:
 	return _direction
 
 
+func go_invincible() -> void: 
+	_invincible = true
+	invincible_player.play("invincible")
+	invincible_timer.start()
+	set_state(PlayerState.HURT)
+	#set_physics_process(false)
+
+
+func apply_hit() -> void: 
+	if _invincible == true:
+		return 
+	go_invincible()
+
+
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	print("player just got hit by: ", area)
+	apply_hit()
+
+
+func _on_invincible_timer_timeout() -> void:
+	_invincible = false
+	invincible_player.stop()
+	#set_physics_process(true)
