@@ -9,6 +9,7 @@ const RUN_SPEED: float = 120.0
 const MAX_FALL: float = 400.0 
 const JUMP_VELOCITY: float = -260.0 
 const HURT_JUMP_VELOCITY: Vector2 = Vector2(0, -130.0)
+const FALLEN_OFF: float = 200.0
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -21,6 +22,7 @@ const HURT_JUMP_VELOCITY: Vector2 = Vector2(0, -130.0)
 var _state: PlayerState
 var _direction: Vector2 = Vector2.RIGHT
 var _invincible: bool = false
+var _lives: int = 5
 
 
 func _ready() -> void: 
@@ -40,12 +42,13 @@ func _physics_process(delta: float) -> void:
 	calculate_state()
 	
 	move_and_slide()
+	fallen_off()
 
 
 func update_debug_label() -> void: 
 	#var label = state_animation()
-	debug_label.text = "state: %s, inv: %s \nfloor: %s \nvel: (%.0f, %.0f)" % [
-		_state, _invincible, is_on_floor(), velocity.x, velocity.y
+	debug_label.text = "state: %s, inv: %s \nfloor: %s \nvel: (%.0f, %.0f) \nhearts: %d" % [
+		_state, _invincible, is_on_floor(), velocity.x, velocity.y, _lives 
 		]
 
 
@@ -177,8 +180,30 @@ func apply_hurt_jump() -> void:
 func apply_hit() -> void: 
 	if _invincible == true:
 		return 
+	pass
+	if reduce_lives(1) == false:
+		return
+	pass
 	go_invincible()
 	set_state(PlayerState.HURT)
+
+
+func reduce_lives(damage: int) -> bool:
+	_lives -= damage
+	SignalManager.on_player_hit.emit(_lives)
+	
+	if _lives <= 0: 
+		SignalManager.on_game_over.emit()
+		set_physics_process(false)
+		print("player game over")
+		return false 
+	return true 
+
+
+func fallen_off() -> void: 
+	if global_position.y < FALLEN_OFF: 
+		return 
+	reduce_lives(_lives)
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
