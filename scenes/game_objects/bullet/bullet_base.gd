@@ -32,5 +32,5 @@ func setup(pos: Vector2, direction: Vector2, speed: float, lifespan: float) -> v
 
 
 func _on_area_entered(area: Area2D) -> void:
-	print("bullet hit ", area)
+	#print("bullet hit ", area)
 	queue_free()

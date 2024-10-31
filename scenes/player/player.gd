@@ -8,6 +8,7 @@ const GRAVITY: float = 690.0
 const RUN_SPEED: float = 120.0 
 const MAX_FALL: float = 400.0 
 const JUMP_VELOCITY: float = -260.0 
+const HURT_JUMP_VELOCITY: Vector2 = Vector2(0, -130.0)
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -15,7 +16,7 @@ const JUMP_VELOCITY: float = -260.0
 @onready var shooter: Node2D = $Shooter
 @onready var invincible_player: AnimationPlayer = $InvinciblePlayer
 @onready var invincible_timer: Timer = $InvincibleTimer
-
+@onready var hurt_timer: Timer = $HurtTimer
 
 var _state: PlayerState
 var _direction: Vector2 = Vector2.RIGHT
@@ -55,6 +56,9 @@ func input_bullet() -> void:
 
 
 func input_movement() -> void: 
+	if _state == PlayerState.HURT:
+		return
+	
 	velocity.x = 0
 	
 	if Input.is_action_pressed("left") == true: 
@@ -122,9 +126,14 @@ func set_state(new_state: PlayerState) -> void:
 			animation_player.play("fall")
 		PlayerState.HURT:
 			animation_player.play("hurt")
+			apply_hurt_jump()
 
 
 func calculate_state() -> void: 
+	# if player is hurt, do nothing
+	if _state == PlayerState.HURT:
+		return
+	
 	# if player is on the floor/platform
 	if is_on_floor() == true: 
 		# on floor - no movement 
@@ -157,22 +166,32 @@ func go_invincible() -> void:
 	_invincible = true
 	invincible_player.play("invincible")
 	invincible_timer.start()
-	set_state(PlayerState.HURT)
-	#set_physics_process(false)
+	#apply_hurt_jump()
+
+
+func apply_hurt_jump() -> void: 
+	velocity = HURT_JUMP_VELOCITY
+	hurt_timer.start()
 
 
 func apply_hit() -> void: 
 	if _invincible == true:
 		return 
 	go_invincible()
+	set_state(PlayerState.HURT)
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	print("player just got hit by: ", area)
+	#print("player just got hit by: ", area)
 	apply_hit()
 
 
 func _on_invincible_timer_timeout() -> void:
 	_invincible = false
 	invincible_player.stop()
-	#set_physics_process(true)
+	#print("invincibility done")
+
+
+func _on_hurt_timer_timeout() -> void:
+	set_state(PlayerState.IDLE)
+	#print("hurt -> idle")

@@ -118,6 +118,21 @@ _data = {
 "run": SubResource("Animation_3s36x")
 }
 
+[sub_resource type="Animation" id="Animation_cw2wa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_noqst"]
 resource_name = "invincible"
 length = 0.4
@@ -134,21 +149,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_cw2wa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_obmmx"]
@@ -200,6 +200,10 @@ libraries = {
 wait_time = 3.0
 one_shot = true
 
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cajbo")
 hframes = 19
@@ -218,4 +222,5 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_m4i3x")
 
 [connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
