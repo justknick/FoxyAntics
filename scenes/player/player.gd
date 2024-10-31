@@ -18,6 +18,7 @@ const FALLEN_OFF: float = 200.0
 @onready var invincible_player: AnimationPlayer = $InvinciblePlayer
 @onready var invincible_timer: Timer = $InvincibleTimer
 @onready var hurt_timer: Timer = $HurtTimer
+@onready var sfx_player: AudioStreamPlayer2D = $SFXPlayer
 
 var _state: PlayerState
 var _direction: Vector2 = Vector2.RIGHT
@@ -76,6 +77,7 @@ func input_movement() -> void:
 		velocity.x = 0
 	
 	if Input.is_action_just_pressed("jump") && is_on_floor():
+		SoundManager.play_clip(sfx_player, "jump") 
 		velocity.y += JUMP_VELOCITY 
 	
 	velocity.y = clampf(velocity.y, JUMP_VELOCITY, MAX_FALL)
@@ -115,6 +117,13 @@ func state_animation() -> void:
 func set_state(new_state: PlayerState) -> void: 
 	if new_state == _state:
 		return 
+	
+	if _state == PlayerState.FALL:
+		if (
+			new_state == PlayerState.IDLE or 
+			new_state == PlayerState.RUN
+		):
+			SoundManager.play_clip(sfx_player, "land")
 	
 	_state = new_state
 	
@@ -180,11 +189,14 @@ func apply_hurt_jump() -> void:
 func apply_hit() -> void: 
 	if _invincible == true:
 		return 
-	pass
+	
+	SoundManager.play_clip(sfx_player, "damage") 
+	
+	go_invincible()
+	
 	if reduce_lives(1) == false:
 		return
-	pass
-	go_invincible()
+	
 	set_state(PlayerState.HURT)
 
 
@@ -194,6 +206,7 @@ func reduce_lives(damage: int) -> bool:
 	
 	if _lives <= 0: 
 		SignalManager.on_game_over.emit()
+		SoundManager.play_clip(sfx_player, "game_over") 
 		set_physics_process(false)
 		print("player game over")
 		return false 

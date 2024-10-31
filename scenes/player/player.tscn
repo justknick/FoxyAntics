@@ -203,6 +203,8 @@ one_shot = true
 [node name="HurtTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_cajbo")
 hframes = 19

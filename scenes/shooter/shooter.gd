@@ -22,6 +22,7 @@ func shoot(direction: Vector2) -> void:
 	
 	_can_shoot = false
 	SignalManager.on_create_bullet.emit(global_position, direction, speed, life_span, bullet_key)
+	SoundManager.play_clip(shoot_sound, "laser")
 	shoot_timer.start()
 
 
