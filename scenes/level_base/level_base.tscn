@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://hwq03drttkcj"]
+[gd_scene load_steps=12 format=4 uid="uid://hwq03drttkcj"]
 
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_xxsck"]
 [ext_resource type="TileSet" uid="uid://7pj6fw0we01w" path="res://resources/terrain_tile_set.tres" id="2_cygcq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjqv10wid6law" path="res://scenes/enemy/eagle.tscn" id="7_8j2p3"]
 [ext_resource type="PackedScene" uid="uid://b1k3cetxi4gjn" path="res://scenes/game_objects/ball_spike/ball_spike.tscn" id="8_ix11y"]
 [ext_resource type="PackedScene" uid="uid://dqx6pehhiitx" path="res://scenes/game_objects/floor_spike/floor_spike.tscn" id="9_e7fne"]
+[ext_resource type="PackedScene" uid="uid://xx5jadg8lcui" path="res://scenes/ui/hud.tscn" id="10_medti"]
 
 [sub_resource type="Curve2D" id="Curve2D_vdb3g"]
 _data = {
@@ -56,3 +57,7 @@ scale = Vector2(0.974621, 0.990295)
 
 [node name="FloorSpike" parent="Hazards" instance=ExtResource("9_e7fne")]
 position = Vector2(66, -12)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("10_medti")]

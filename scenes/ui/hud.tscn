@@ -1,0 +1,133 @@
+[gd_scene load_steps=5 format=3 uid="uid://xx5jadg8lcui"]
+
+[ext_resource type="LabelSettings" uid="uid://bpqenkuyfwyq6" path="res://resources/label_LG_white_48.tres" id="1_r1mm4"]
+[ext_resource type="Texture2D" uid="uid://bxyy7n624a8mn" path="res://assets/items/pixel heart 2.png" id="2_jjvti"]
+[ext_resource type="LabelSettings" uid="uid://drd8nbbuaifqf" path="res://resources/label_LG_64_blue.tres" id="3_a11ov"]
+[ext_resource type="LabelSettings" uid="uid://l45ox0btfg1t" path="res://resources/label_LG_white_24.tres" id="4_kvipl"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "000"
+label_settings = ExtResource("1_r1mm4")
+vertical_alignment = 1
+
+[node name="HeartHBox" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Heart" type="TextureRect" parent="MarginContainer/HBoxContainer/HeartHBox"]
+layout_mode = 2
+texture = ExtResource("2_jjvti")
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="MarginContainer/HBoxContainer/HeartHBox"]
+layout_mode = 2
+texture = ExtResource("2_jjvti")
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="MarginContainer/HBoxContainer/HeartHBox"]
+layout_mode = 2
+texture = ExtResource("2_jjvti")
+stretch_mode = 4
+
+[node name="Heart4" type="TextureRect" parent="MarginContainer/HBoxContainer/HeartHBox"]
+layout_mode = 2
+texture = ExtResource("2_jjvti")
+stretch_mode = 4
+
+[node name="Heart5" type="TextureRect" parent="MarginContainer/HBoxContainer/HeartHBox"]
+layout_mode = 2
+texture = ExtResource("2_jjvti")
+stretch_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.00392157, 0.0980392, 0.815686)
+
+[node name="LevelComplete" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelLabel" type="Label" parent="ColorRect/LevelComplete"]
+layout_mode = 2
+text = "Level Complete"
+label_settings = ExtResource("3_a11ov")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextLabel" type="Label" parent="ColorRect/LevelComplete"]
+layout_mode = 2
+text = "press jump for next level "
+label_settings = ExtResource("4_kvipl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="VBoxContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="ColorRect/GameOver"]
+layout_mode = 2
+text = "GameOver"
+label_settings = ExtResource("3_a11ov")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="ColorRect/GameOver"]
+layout_mode = 2
+text = "press jump for main menu"
+label_settings = ExtResource("4_kvipl")
+horizontal_alignment = 1
+vertical_alignment = 1
