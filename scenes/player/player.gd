@@ -27,7 +27,7 @@ var _lives: int = 5
 
 
 func _ready() -> void: 
-	pass 
+	call_deferred("setup_player_hearts")
 
 
 func _physics_process(delta: float) -> void:
@@ -44,6 +44,10 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	fallen_off()
+
+
+func setup_player_hearts(): 
+	SignalManager.on_game_started.emit(_lives) 
 
 
 func update_debug_label() -> void: 

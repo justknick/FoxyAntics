@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://xx5jadg8lcui"]
+[gd_scene load_steps=6 format=3 uid="uid://xx5jadg8lcui"]
 
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_8js7o"]
 [ext_resource type="LabelSettings" uid="uid://bpqenkuyfwyq6" path="res://resources/label_LG_white_48.tres" id="1_r1mm4"]
 [ext_resource type="Texture2D" uid="uid://bxyy7n624a8mn" path="res://assets/items/pixel heart 2.png" id="2_jjvti"]
-[ext_resource type="LabelSettings" uid="uid://drd8nbbuaifqf" path="res://resources/label_LG_64_blue.tres" id="3_a11ov"]
+[ext_resource type="LabelSettings" uid="uid://drd8nbbuaifqf" path="res://resources/label_LG_blue_64.tres" id="3_a11ov"]
 [ext_resource type="LabelSettings" uid="uid://l45ox0btfg1t" path="res://resources/label_LG_white_24.tres" id="4_kvipl"]
 
 [node name="Hud" type="Control"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8js7o")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
