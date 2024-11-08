@@ -14,10 +14,16 @@ func _ready() -> void:
 	SignalManager.on_player_hit.connect(update_hearts_display)
 	SignalManager.on_game_started.connect(update_hearts_display)
 	SignalManager.on_game_over.connect(on_game_over)
+	SignalManager.on_score_update.connect(on_score_update)
+	on_score_update(ScoreManager.get_score())
 
 
 func game_over_controls() -> void: 
 	pass
+
+
+func on_score_update(score: int) -> void: 
+	score_label.text = "%05d" % score
 
 
 func update_hearts_display(lives: int) -> void: 

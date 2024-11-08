@@ -36,21 +36,19 @@ position = Vector2(289, -149)
 
 [node name="EnemySnail" parent="Enemies" instance=ExtResource("5_2v8bx")]
 position = Vector2(539, -26)
+speed = 30.0
+points = 1
 
 [node name="EnemyFrog" parent="Enemies" instance=ExtResource("6_y6rx7")]
 position = Vector2(-108, -188)
-points = null
-jump_timer_min = null
-jump_timer_max = null
 
 [node name="Eagle" parent="Enemies" instance=ExtResource("7_8j2p3")]
 position = Vector2(363, -274)
-points = null
 
-[node name="Hazards" type="Node2D" parent="." groups=["Moveables"]]
+[node name="Hazards" type="Node2D" parent="."]
 z_index = -1
 
-[node name="Path2D" type="Path2D" parent="Hazards" groups=["Moveables"]]
+[node name="Path2D" type="Path2D" parent="Hazards"]
 position = Vector2(-7.99479, 1.52942)
 scale = Vector2(1.02604, 1.0098)
 curve = SubResource("Curve2D_vdb3g")

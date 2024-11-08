@@ -34,7 +34,8 @@ func defeat() -> void:
 	if _dying == true:
 		return 
 	
-	#below also plays sounds, pickups, and explosions(done)
+	#below also plays sounds, pickups(done), and explosions(done)
+	SignalManager.on_pickup_hit.emit(points)
 	SignalManager.on_create_object.emit(global_position, Constants.ObjectType.EXPLOSION)
 	SignalManager.on_create_object.emit(global_position, Constants.ObjectType.PICKUP)
 

@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 func on_game_over() -> void: 
 	#get all moveable objects to freeze 
 	for moveable in get_tree().get_nodes_in_group(Constants.MOVEABLES_GROUP):
-		print("freeing ", moveable)
+		#print("freezing ", moveable)
 		moveable.set_physics_process(false)
 		moveable.set_process(false)
  

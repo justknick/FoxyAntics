@@ -33,4 +33,5 @@ func setup(pos: Vector2, direction: Vector2, speed: float, lifespan: float) -> v
 
 func _on_area_entered(_area: Area2D) -> void:
 	#print("bullet hit ", area)
+	#SignalManager.on_enemy_hit.emit()
 	queue_free()
