@@ -23,7 +23,7 @@ const FALLEN_OFF: float = 200.0
 var _state: PlayerState
 var _direction: Vector2 = Vector2.RIGHT
 var _invincible: bool = false
-var _lives: int = 5
+var _lives: int = 2
 
 
 func _ready() -> void: 
@@ -212,6 +212,8 @@ func reduce_lives(damage: int) -> bool:
 		SignalManager.on_game_over.emit()
 		SoundManager.play_clip(sfx_player, "game_over") 
 		set_physics_process(false)
+		animation_player.stop()
+		invincible_player.stop()
 		print("player game over")
 		return false 
 	return true 

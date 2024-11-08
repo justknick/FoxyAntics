@@ -13,7 +13,8 @@ size = Vector2(20, 11)
 
 [node name="Snail" instance=ExtResource("1_bfn8m")]
 script = ExtResource("2_chtkt")
-speed = 30.0
+speed = null
+points = null
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = ExtResource("3_6nylp")

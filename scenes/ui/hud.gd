@@ -13,8 +13,18 @@ func _ready() -> void:
 	_hearts = heart_h_box.get_children()
 	SignalManager.on_player_hit.connect(update_hearts_display)
 	SignalManager.on_game_started.connect(update_hearts_display)
+	SignalManager.on_game_over.connect(on_game_over)
+
+
+func game_over_controls() -> void: 
+	pass
 
 
 func update_hearts_display(lives: int) -> void: 
 	for heart in range(_hearts.size()):
 		_hearts[heart].visible = lives > heart 
+
+
+func on_game_over() -> void: 
+	color_rect.show()
+	game_over.show()

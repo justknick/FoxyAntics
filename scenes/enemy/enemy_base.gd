@@ -6,6 +6,8 @@ const OFF_SCREEN_REMOVE: float = 200.0
 
 @export var points: int = 1
 
+@onready var base_animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 var _player_ref: Player
 var _gravity: float = 800.0 
 var _dying: bool = false 
@@ -16,6 +18,7 @@ func _ready() -> void:
 	if _player_ref == null:
 		print("no player reference") 
 		return
+	SignalManager.on_game_over.connect(on_game_over)
 
 
 func _physics_process(_delta: float) -> void:
@@ -39,6 +42,10 @@ func defeat() -> void:
 	set_physics_process(false)
 	hide()
 	queue_free()
+
+
+func on_game_over() -> void: 
+	base_animated_sprite_2d.pause()
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
