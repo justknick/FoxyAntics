@@ -10,12 +10,12 @@ var _hearts: Array = []
 
 
 func _ready() -> void: 
+	on_score_update(ScoreManager.get_score())
 	_hearts = heart_h_box.get_children()
 	SignalManager.on_player_hit.connect(update_hearts_display)
 	SignalManager.on_game_started.connect(update_hearts_display)
 	SignalManager.on_game_over.connect(on_game_over)
 	SignalManager.on_score_update.connect(on_score_update)
-	on_score_update(ScoreManager.get_score())
 
 
 func game_over_controls() -> void: 
