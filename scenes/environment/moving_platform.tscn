@@ -6,9 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgyk3"]
 size = Vector2(46, 6)
 
-[node name="MovingPlatform" type="AnimatableBody2D" node_paths=PackedStringArray("platform_destination")]
+[node name="MovingPlatform" type="AnimatableBody2D"]
 script = ExtResource("1_mmtvt")
-platform_destination = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_d52pe")
