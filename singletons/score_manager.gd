@@ -9,6 +9,7 @@ var _score_history: Array = []
 
 func _ready() -> void: 
 	SignalManager.on_enemy_hit.connect(update_score)
+	SignalManager.on_boss_defeated.connect(update_score)
 	SignalManager.on_pickup_hit.connect(update_score)
 	SignalManager.on_game_over.connect(on_game_over)
 	load_save_data()
