@@ -90,6 +90,8 @@ collision_mask = 2
 monitoring = false
 script = ExtResource("1_dn1wo")
 
+[node name="CheckpointSound" type="AudioStreamPlayer2D" parent="."]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_cktjf")
@@ -111,3 +113,5 @@ frame = 27
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, -21)
 shape = SubResource("RectangleShape2D_l3jfa")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
