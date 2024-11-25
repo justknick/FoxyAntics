@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://hwq03drttkcj"]
+[gd_scene load_steps=15 format=4 uid="uid://hwq03drttkcj"]
 
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_xxsck"]
 [ext_resource type="TileSet" uid="uid://7pj6fw0we01w" path="res://resources/terrain_tile_set.tres" id="2_cygcq"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dqx6pehhiitx" path="res://scenes/game_objects/floor_spike/floor_spike.tscn" id="9_e7fne"]
 [ext_resource type="PackedScene" uid="uid://xx5jadg8lcui" path="res://scenes/ui/hud.tscn" id="10_medti"]
 [ext_resource type="PackedScene" uid="uid://c3qe281o7dqxq" path="res://scenes/environment/moving_platform.tscn" id="11_dg6o5"]
+[ext_resource type="PackedScene" uid="uid://cwesbbt2to488" path="res://scenes/game_objects/checkpoint/checkpoint.tscn" id="13_q1gwr"]
 
 [sub_resource type="Curve2D" id="Curve2D_vdb3g"]
 _data = {
@@ -84,3 +85,6 @@ position = Vector2(232, -59)
 
 [node name="p2" type="Marker2D" parent="Environment"]
 position = Vector2(-135, -75)
+
+[node name="Checkpoint" parent="Environment" instance=ExtResource("13_q1gwr")]
+position = Vector2(1382, -16)
