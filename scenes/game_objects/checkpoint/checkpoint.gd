@@ -5,6 +5,9 @@ const TRIGGER_CONDITION: String = "parameters/conditions/on_trigger"
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var checkpoint_sound: AudioStreamPlayer2D = $CheckpointSound
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+var _touched: bool = false
 
 
 func _ready() -> void: 
@@ -19,5 +22,7 @@ func on_boss_defeated(_points: int) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	SoundManager.play_clip(checkpoint_sound, "win")
-	print("level completed!") 
+	if _touched == false: 
+		SoundManager.play_clip(checkpoint_sound, "win")
+		print("level completed!") 
+		_touched = true

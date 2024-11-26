@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://dk3qi27cdnhmw"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_3k4xj"]
+[ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_3k4xj"]
 [ext_resource type="Texture2D" uid="uid://csdgtexoviypb" path="res://assets/player/player.png" id="1_cajbo"]
-[ext_resource type="PackedScene" uid="uid://dureiicc7e3p0" path="res://scenes/player_camera/player_camera.tscn" id="3_06e1q"]
-[ext_resource type="PackedScene" uid="uid://dt2s0rttigswf" path="res://scenes/shooter/shooter.tscn" id="3_66x87"]
+[ext_resource type="PackedScene" uid="uid://dureiicc7e3p0" path="res://scenes/entities/player_camera/player_camera.tscn" id="3_06e1q"]
+[ext_resource type="PackedScene" uid="uid://dt2s0rttigswf" path="res://scenes/game_objects/shooter/shooter.tscn" id="3_66x87"]
 
 [sub_resource type="Animation" id="Animation_rq12a"]
 length = 0.001

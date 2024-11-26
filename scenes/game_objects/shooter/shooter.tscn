@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dt2s0rttigswf"]
 
-[ext_resource type="Script" path="res://scenes/shooter/shooter.gd" id="1_161yl"]
+[ext_resource type="Script" path="res://scenes/game_objects/shooter/shooter.gd" id="1_161yl"]
 
 [node name="Shooter" type="Node2D"]
 script = ExtResource("1_161yl")

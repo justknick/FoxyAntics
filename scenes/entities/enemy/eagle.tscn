@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://bjqv10wid6law"]
 
-[ext_resource type="PackedScene" uid="uid://cqtvgqts82kcg" path="res://scenes/enemy/enemy_base.tscn" id="1_2qkqk"]
+[ext_resource type="PackedScene" uid="uid://cqtvgqts82kcg" path="res://scenes/entities/enemy/enemy_base.tscn" id="1_2qkqk"]
 [ext_resource type="Texture2D" uid="uid://y3v8mdqhc4xb" path="res://assets/enemies/eagle/eagle-attack.png" id="2_67r14"]
-[ext_resource type="Script" path="res://scenes/enemy/eagle.gd" id="2_771d2"]
-[ext_resource type="PackedScene" uid="uid://dt2s0rttigswf" path="res://scenes/shooter/shooter.tscn" id="3_jq6ib"]
+[ext_resource type="Script" path="res://scenes/entities/enemy/eagle.gd" id="2_771d2"]
+[ext_resource type="PackedScene" uid="uid://dt2s0rttigswf" path="res://scenes/game_objects/shooter/shooter.tscn" id="3_jq6ib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_df10g"]
 atlas = ExtResource("2_67r14")

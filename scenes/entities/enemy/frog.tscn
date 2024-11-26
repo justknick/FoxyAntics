@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://bq7hbknqj62qe"]
 
-[ext_resource type="PackedScene" uid="uid://cqtvgqts82kcg" path="res://scenes/enemy/enemy_base.tscn" id="1_ffakn"]
+[ext_resource type="PackedScene" uid="uid://cqtvgqts82kcg" path="res://scenes/entities/enemy/enemy_base.tscn" id="1_ffakn"]
 [ext_resource type="Texture2D" uid="uid://bf5spno8xkmgq" path="res://assets/enemies/frog/frog_sheet.png" id="2_ciiat"]
-[ext_resource type="Script" path="res://scenes/enemy/frog.gd" id="2_ydpv0"]
+[ext_resource type="Script" path="res://scenes/entities/enemy/frog.gd" id="2_ydpv0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbfxv"]
 atlas = ExtResource("2_ciiat")

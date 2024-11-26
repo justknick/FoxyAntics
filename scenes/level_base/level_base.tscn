@@ -1,17 +1,18 @@
-[gd_scene load_steps=15 format=4 uid="uid://hwq03drttkcj"]
+[gd_scene load_steps=16 format=4 uid="uid://hwq03drttkcj"]
 
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_xxsck"]
 [ext_resource type="TileSet" uid="uid://7pj6fw0we01w" path="res://resources/terrain_tile_set.tres" id="2_cygcq"]
-[ext_resource type="PackedScene" uid="uid://dk3qi27cdnhmw" path="res://scenes/player/player.tscn" id="2_hxsqf"]
-[ext_resource type="PackedScene" uid="uid://d321l0hyqowwj" path="res://scenes/enemy/snail.tscn" id="5_2v8bx"]
+[ext_resource type="PackedScene" uid="uid://dk3qi27cdnhmw" path="res://scenes/entities/player/player.tscn" id="2_hxsqf"]
+[ext_resource type="PackedScene" uid="uid://c7x0aw50ica4p" path="res://scenes/game_objects/parallax_background/parallax_background.tscn" id="3_rkfn5"]
+[ext_resource type="PackedScene" uid="uid://d321l0hyqowwj" path="res://scenes/entities/enemy/snail.tscn" id="5_2v8bx"]
 [ext_resource type="PackedScene" uid="uid://1c3vx01t3m8q" path="res://scenes/game_objects/object_maker/object_maker.tscn" id="6_woe1m"]
-[ext_resource type="PackedScene" uid="uid://bq7hbknqj62qe" path="res://scenes/enemy/frog.tscn" id="6_y6rx7"]
-[ext_resource type="PackedScene" uid="uid://bjqv10wid6law" path="res://scenes/enemy/eagle.tscn" id="7_8j2p3"]
+[ext_resource type="PackedScene" uid="uid://bq7hbknqj62qe" path="res://scenes/entities/enemy/frog.tscn" id="6_y6rx7"]
+[ext_resource type="PackedScene" uid="uid://bjqv10wid6law" path="res://scenes/entities/enemy/eagle.tscn" id="7_8j2p3"]
 [ext_resource type="PackedScene" uid="uid://b1k3cetxi4gjn" path="res://scenes/game_objects/ball_spike/ball_spike.tscn" id="8_ix11y"]
-[ext_resource type="PackedScene" uid="uid://b7axudj1l0t7q" path="res://scenes/boss/boss.tscn" id="8_ixolg"]
+[ext_resource type="PackedScene" uid="uid://b7axudj1l0t7q" path="res://scenes/entities/boss/boss.tscn" id="8_ixolg"]
 [ext_resource type="PackedScene" uid="uid://dqx6pehhiitx" path="res://scenes/game_objects/floor_spike/floor_spike.tscn" id="9_e7fne"]
 [ext_resource type="PackedScene" uid="uid://xx5jadg8lcui" path="res://scenes/ui/hud.tscn" id="10_medti"]
-[ext_resource type="PackedScene" uid="uid://c3qe281o7dqxq" path="res://scenes/environment/moving_platform.tscn" id="11_dg6o5"]
+[ext_resource type="PackedScene" uid="uid://c3qe281o7dqxq" path="res://scenes/game_objects/moving_platform/moving_platform.tscn" id="11_dg6o5"]
 [ext_resource type="PackedScene" uid="uid://cwesbbt2to488" path="res://scenes/game_objects/checkpoint/checkpoint.tscn" id="13_q1gwr"]
 
 [sub_resource type="Curve2D" id="Curve2D_vdb3g"]
@@ -24,6 +25,8 @@ point_count = 7
 script = ExtResource("1_xxsck")
 
 [node name="ObjectMaker" parent="." instance=ExtResource("6_woe1m")]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_rkfn5")]
 
 [node name="TileMapLayers" type="Node2D" parent="."]
 
