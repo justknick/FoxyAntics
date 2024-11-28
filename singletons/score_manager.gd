@@ -64,3 +64,14 @@ func reset_score() -> void:
 
 func get_score() -> int: 
 	return _score
+
+
+func get_score_history() -> Array[int]: 
+	# will return a list of past scores, that aren't 0
+	var highscores: Array[int] = []
+	
+	for score_record in _score_history:
+		if score_record.score != 0:
+			highscores.push_back(int(score_record.score))
+	return highscores
+	 
