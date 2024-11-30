@@ -3,13 +3,15 @@ extends Node2D
 
 func _ready() -> void: 
 	SignalManager.on_game_over.connect(on_game_over)
+	print("current scene: ", GameManager.get_current_scene)
 
 
 func _process(_delta: float) -> void:
-	#if Input.is_action_just_pressed("shoot"):
-		#print("pew!")
-		#SignalManager.on_create_bullet.emit(Vector2(50,50), Vector2(50,50), 3.0, 20.0, Constants.ObjectType.BULLET_PLAYER)
-	pass
+	if Input.is_action_just_pressed("advance"):
+		GameManager.load_next_level_scene()
+		print("there is now cow level!")
+	if Input.is_action_just_pressed("quit"):
+		GameManager.load_main_scene()
 
 
 func on_game_over() -> void: 

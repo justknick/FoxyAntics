@@ -8,6 +8,12 @@ extends Control
 func _ready() -> void: 
 	display_scores()
 	pass
+	print("current scene: ", GameManager.get_current_scene)
+
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("jump"):
+		GameManager.load_next_level_scene()
 
 
 
