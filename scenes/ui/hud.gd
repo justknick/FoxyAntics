@@ -18,8 +18,14 @@ func _ready() -> void:
 	SignalManager.on_score_update.connect(on_score_update)
 
 
+func _process(delta: float) -> void:
+	game_over_controls()
+
+
 func game_over_controls() -> void: 
-	pass
+	if game_over.visible == true:
+		if Input.is_action_just_pressed("jump"):
+			GameManager.load_main_scene()
 
 
 func on_score_update(score: int) -> void: 

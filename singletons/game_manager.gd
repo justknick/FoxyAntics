@@ -8,7 +8,7 @@ var _level_scenes: Dictionary = {}
 var _current_level: int = 0 
 
 
-func ready() -> void: 
+func _ready() -> void: 
 	#for level_number in range(1, TOTAL_LEVELS+1):
 		#_level_scenes[level_number] = load("res://scenes/level_base/level_%d.tscn" % level_number)
 	level_loader()
